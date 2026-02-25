@@ -26,6 +26,7 @@ export function getTicketPrice(age, isWeekend) {
   // Your code here
   // Validate age for groups
   if(typeof age !== "number" || age < 0){
+    
     return -1;
   }
   let price;

@@ -32,4 +32,37 @@
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
   // Your code here
+  // validatuions
+  if(
+    size !== 'small'&&
+     size !== 'medium' && 
+     size !== 'large')
+      return -1;
+// Validate type
+    if (
+    type !== 'regular' &&
+    type !== 'latte' &&
+    type !== 'cappuccino' &&
+    type !== 'mocha'
+  )
+    return -1;
+
+  let totalPrice = 0;
+  //Base price by size
+  if(size === 'small')  totalPrice += 3;
+  if(size === 'medium')  totalPrice += 4;
+  if(size === 'large')  totalPrice += 5;
+// Add-on for coffee type
+if(type === 'regular')  totalPrice += 0;
+if(type === 'latte')  totalPrice +=1;
+if(type === 'cappuccino')  totalPrice += 1.5;
+if(type === 'mocha')  totalPrice +=2;
+// Optional extras
+
+  if(extras.whippedCream)  totalPrice += 0.50;
+  if(extras.extraShot)  totalPrice += 0.75;
+
+return Number(totalPrice.toFixed(2));
+  
+
 }

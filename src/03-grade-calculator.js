@@ -23,7 +23,33 @@
  * @param {number} score - The student's percentage score (0-100)
  * @param {boolean} hasExtraCredit - Whether the student has extra credit
  * @returns {string} The letter grade or "INVALID"
- */
+*/
 export function calculateGrade(score, hasExtraCredit) {
   // Your code here
+  if(score < 0 || score > 100){
+    return "INVALID"
+  }
+  // extra credit validation
+  if(hasExtraCredit === true){
+    score += 5;
+    if(score> 100){
+      score = 100
+    }
+  }
+  // grade adjustment
+  if(score >= 90){
+    return "A"
+  }
+  else if (score >= 80){
+    return "B"
+  }
+  else if (score >= 70){
+    return "C"
+  }
+  else if (score >= 60){
+    return "D"
+  }
+  else{
+    return "F"
+  }
 }
